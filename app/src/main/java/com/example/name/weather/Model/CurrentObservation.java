@@ -1,11 +1,17 @@
 package com.example.name.weather.Model;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.io.Serializable;
+
 /**
  * Created by Erik on 21/08/2017.
  */
 
-class CurrentObservation {
+public class CurrentObservation implements Serializable {
+    @SerializedName("display_location")
     private DisplayLocation displayLocation;
+    @SerializedName("temp_c")
     Float tempC;
     String icon;
     String weather;
@@ -32,5 +38,13 @@ class CurrentObservation {
 
     public void setIcon(String icon) {
         this.icon = icon;
+    }
+
+    public String getWeather() {
+        return weather;
+    }
+
+    public void setWeather(String weather) {
+        this.weather = weather;
     }
 }

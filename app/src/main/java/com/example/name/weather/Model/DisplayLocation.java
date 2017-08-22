@@ -1,10 +1,12 @@
 package com.example.name.weather.Model;
 
+import java.io.Serializable;
+
 /**
  * Created by Erik on 21/08/2017.
  */
 
-class DisplayLocation {
+public class DisplayLocation implements Serializable {
     String city;
 
     public String getCity() {

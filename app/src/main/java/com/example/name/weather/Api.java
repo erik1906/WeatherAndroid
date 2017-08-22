@@ -21,6 +21,6 @@ public class Api {
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }
-        return;
+        return retrofit;
     }
 }

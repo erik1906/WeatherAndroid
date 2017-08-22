@@ -1,17 +1,22 @@
 package com.example.name.weather.Model;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.io.Serializable;
+
 /**
  * Created by Erik on 21/08/2017.
  */
 
-public class Weather {
-    private CurrentObservation currentObservation;
+public class Weather implements Serializable {
+    @SerializedName("current_observation")
+    private CurrentObservation current_observation;
 
-    public CurrentObservation getCurrentObservation() {
-        return currentObservation;
+    public CurrentObservation getCurrent_observation() {
+        return current_observation;
     }
 
-    public void setCurrentObservation(CurrentObservation currentObservation) {
-        this.currentObservation = currentObservation;
+    public void setCurrent_observation(CurrentObservation current_observation) {
+        this.current_observation = current_observation;
     }
 }
