@@ -30,7 +30,7 @@ public class WeatherActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.activity_weather);
 
         tvCity = (TextView) findViewById(R.id.tvCity);
         tvTemp = (TextView) findViewById(R.id.tvTemp);
@@ -39,7 +39,7 @@ public class WeatherActivity extends AppCompatActivity {
 
         getWeather = Api.getApi().create(GetWeather.class);
         getCity(getIntent().getStringExtra("cityName"));
-        setContentView(R.layout.activity_weather);
+
     }
 
     public void getCity(String cityName){
@@ -49,7 +49,7 @@ public class WeatherActivity extends AppCompatActivity {
             public void onResponse(Call<Weather> call, Response<Weather> response) {
                 CurrentObservation res = response.body().getCurrent_observation();
                 tvCity.setText(res.getDisplayLocation().getCity().toString());
-                tvTemp.setText(res.getTempC().toString());
+                tvTemp.setText(res.getTempC().toString()+"°c");
                 tvWeather.setText(res.getWeather());
                 int resourceId = getBaseContext().getResources().getIdentifier(res.getIcon(), "drawable",
                         getBaseContext().getPackageName());
